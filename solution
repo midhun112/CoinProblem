@@ -1,0 +1,21 @@
+def count(coins, n, sum):
+    if (sum == 0):
+        return 1
+    if (sum < 0):
+        return 0
+ 
+    if (n <= 0):
+        return 0
+    return count(coins, n - 1, sum) + count(coins, n, sum-coins[n-1])
+ 
+ 
+coins=[]
+sum = int(input("Enter the Sum:"))
+size = int(input("Enter the Size:"))
+
+for i in range(size):
+    item = int(input())
+    coins.append(item)
+
+print("-----output-------")
+print(count(coins, size, sum))
